@@ -4,9 +4,9 @@ final class GameScene: SKScene, SKPhysicsContactDelegate {
 
     // MARK: - Categories
     private enum Category: UInt32 {
-        case player  = 0x1 << 0
-        case bullet  = 0x1 << 1
-        case enemy   = 0x1 << 2
+        case player  = 1
+        case bullet  = 2
+        case enemy   = 4
     }
 
     // MARK: - Nodes
@@ -326,6 +326,6 @@ final class GameScene: SKScene, SKPhysicsContactDelegate {
 
 extension CGFloat {
     func clamped(to range: ClosedRange<CGFloat>) -> CGFloat {
-        min(max(self, range.lowerBound), range.upperBound)
+        Swift.min(Swift.max(self, range.lowerBound), range.upperBound)
     }
 }
